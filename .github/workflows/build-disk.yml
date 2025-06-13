@@ -18,6 +18,7 @@ on:
   pull_request:
     branches:
       - main
+      - testing
     paths:
       - './disk_config/disk.toml'
       - './disk_config/iso.toml'
