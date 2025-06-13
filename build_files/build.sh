@@ -22,6 +22,7 @@ declare -A RPM_PACKAGES=(
   ["copr:iucar/rstudio"]="rstudio-desktop"
 
   ["copr:iucar/duckdb"]="duckdb"
+  ["copr:ublue-os/packages"]="ublue-brew"
 )
 # adapted from astrovm/amyos install-apps.sh
 log "Installing RPM packages"
