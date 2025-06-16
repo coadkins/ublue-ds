@@ -23,6 +23,7 @@ declare -A RPM_PACKAGES=(
 
   ["copr:iucar/duckdb"]="duckdb"
   ["copr:ublue-os/packages"]="ublue-brew"
+  ["copr:pgdev/ghostty"]="ghostty"
 )
 # adapted from astrovm/amyos install-apps.sh
 log "Installing RPM packages"
