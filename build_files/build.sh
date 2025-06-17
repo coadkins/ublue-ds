@@ -20,7 +20,6 @@ declare -A RPM_PACKAGES=(
     r"
 
   ["copr:iucar/rstudio"]="rstudio-desktop"
-
   ["copr:iucar/duckdb"]="duckdb"
   ["copr:ublue-os/packages"]="ublue-brew"
   ["copr:pgdev/ghostty"]="ghostty"

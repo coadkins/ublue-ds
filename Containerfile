@@ -4,6 +4,7 @@ COPY build_files /
 
 # Base Image
 FROM ghcr.io/ublue-os/kinoite-main:42
+COPY system_files /
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
