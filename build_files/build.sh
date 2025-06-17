@@ -16,8 +16,7 @@ log() {
 # RPM packages list
 declare -A RPM_PACKAGES=(
   ["fedora"]="\
-    neovim \
-    r"
+    neovim" 
 
   ["copr:iucar/rstudio"]="rstudio-desktop"
   ["copr:iucar/duckdb"]="duckdb"
