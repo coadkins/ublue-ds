@@ -37,6 +37,8 @@ jobs:
       id-token: write
 
     steps:
+      - name: Delete huge unnecessary tools folder
+        run: rm -rf /opt/hostedtoolcache
       - name: Prepare environment
         run: |
           # Lowercase the image uri
