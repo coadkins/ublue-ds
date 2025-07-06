@@ -4,6 +4,7 @@ COPY build_files /
 
 # Base Image
 FROM ghcr.io/ublue-os/kinoite-main:42
+COPY system_files /
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
@@ -22,8 +23,27 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    /ctx/build.sh && \
-    ostree container commit
+    /ctx/install_official_repos.sh
+
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /ctx/install_copr_repos.sh
+
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /ctx/install_positron.sh
+
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /ctx/install_quarto.sh
+
+RUN ostree container commit
     
 ### LINTING
 ## Verify final image and contents are correct.
