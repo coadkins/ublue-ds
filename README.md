@@ -33,9 +33,3 @@ ujust ds-install-brews
 ```
 Currently, this installs Texlive, Typst and UV.
 
-# Multiple R Versions
-
-```console
-R_VERSION=4.4.3
-ujust ds-install-r
-```
