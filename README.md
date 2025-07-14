@@ -17,11 +17,13 @@ This image was built on the [Universal Blue Image Template](https://github.com/u
 
 Currently some advanced configruation options like CUDA support, etc. are missing, although they may be added in the future.
 
+Finally, an experimental image using the Cosmic Desktop environment is available as `ublue-ds-cosmic-atomic:latest`.
+
 # Installation
 The most straightforward way to use this image is to rebase to it from an existing installation of a [Fedora Atomic desktop](https://fedoraproject.org/atomic-desktops/). Those desktops come with GUI installers that set up the system and users. After installation, use:
 
 ```console
-bootc switch "ghcr.io/coadkins/ublue-ds:latest"
+bootc switch "ghcr.io/coadkins/ublue-ds-kinoite:latest"
 ```
 It is also possible to install this image using [ignition](https://docs.fedoraproject.org/en-US/fedora-coreos/producing-ign/) during the initial boot of a Fedora Atomic system, although this process is more involved.
 
