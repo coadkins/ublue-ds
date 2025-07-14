@@ -18,7 +18,7 @@ env:
   BASE_IMAGE: "${{ inputs.base-image }}"
   IMAGE_NAME: "${{ github.event.repository.name }}-${{ inputs.base-image }}"  # output image name, usually same as repo name
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"  # do not edit
-  DEFAULT_TAG: "{{ inputs.image-tag }}" 
+  DEFAULT_TAG: "${{ inputs.image-tag }}" 
 
 jobs:
   build_push:
@@ -98,7 +98,7 @@ jobs:
           # Postfix image name with -custom to make it a little more descriptive
           # Syntax: https://docs.github.com/en/actions/learn-github-actions/expressions#format
           image: ${{ env.IMAGE_NAME }}
-          tags: ${{ inputs.image-tag }}
+          tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
           oci: false
           build-args: |
@@ -148,7 +148,7 @@ jobs:
         with:
           registry: ${{ env.IMAGE_REGISTRY }}
           image: ${{ env.IMAGE_NAME }}
-          tags: ${{ inputs.image-tag }}
+          tags: ${{ steps.metadata.outputs.tags }}
           username: ${{ env.REGISTRY_USER }}
           password: ${{ env.REGISTRY_PASSWORD }}
 
