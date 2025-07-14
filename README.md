@@ -8,6 +8,7 @@ This repository provides a lightly modified version of Fedora Kinoite that inclu
 - DuckDB
 - Positron
 - Quarto
+- R (the most recent 4 releases)
 - RStudio
 - VSCodium
 
@@ -28,10 +29,19 @@ bootc switch "ghcr.io/coadkins/ublue-ds-kinoite:latest"
 It is also possible to install this image using [ignition](https://docs.fedoraproject.org/en-US/fedora-coreos/producing-ign/) during the initial boot of a Fedora Atomic system, although this process is more involved.
 
 # Homebrew
-Wherever possible, this desktop uses homebrew to manage packages and cli tools. You can install common data science cli tools using:
+Wherever possible, this desktop uses [homebrew](https://brew.sh/) to manage packages and cli tools. You can install common data science tools using the custom just commands:
 
 ```console
 ujust ds-install-brews 
 ```
-Currently, this installs Texlive, Typst and UV.
+Currently, this installs TeX Live, Typst and uv.
 
+# Usage
+
+Although, Fedora recommends the use of toolbx for development on atomic distributions, you can develop smaller projects using the system-wide installations of R and Python with renv and venv, respectively.
+
+For larger projects, I use a distrobox image with rig and uv pre-installed. 
+
+# Acknowledgements
+
+This image was built on the [Universal Blue Image Template](https://github.com/ublue-os/image-template). Some of the installation scripts are modified versions of the scripts developed for the [Rocker project](https://github.com/rocker-org/rocker-versioned2), [rig](https://github.com/r-lib/rig/tree/main) and [AmyOS](https://github.com/astrovm/amyos).
