@@ -1,9 +1,12 @@
+# Load input values from github workflow
+ARG BASE_IMAGE=kinoite
+RUN ECHO $BASE_IMAGE
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/kinoite-main:42
+FROM ghcr.io/ublue-os/${BASE_IMAGE}-main:42
 COPY system_files /
 
 ## Other possible base images include:
