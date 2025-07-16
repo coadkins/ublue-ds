@@ -8,7 +8,7 @@ This repository provides an atomic Fedora desktop that works "out-of-the-box" fo
 - DuckDB
 - Positron
 - Quarto
-- R (the most recent 4 releases)
+- R (the 2 most recent releases)
 - RStudio
 - VSCodium
 
@@ -34,9 +34,9 @@ Currently, this installs TeX Live, Typst and uv.
 
 # Usage
 
-Although, Fedora recommends the use of toolbx for development on atomic distributions, you can develop smaller projects using the system-wide installations of R and Python with renv and venv, respectively.
+Although, Fedora recommends the use of toolbx for development on atomic distributions, you can develop simpler projects using the system-wide installations of R and Python with renv and venv, respectively.
 
-For larger projects, I use a distrobox image with rig and uv pre-installed. 
+For projects with more complex dependencies, I use a [distrobox image with rig and uv pre-installed] (https://github.com/coadkins/ds-distrobox). That distrobox is pre-configured as an SSH host, and can be accessed with [Positron's Remotes](https://positron.posit.co/remote-ssh.html) extension. 
 
 # Acknowledgements
 
