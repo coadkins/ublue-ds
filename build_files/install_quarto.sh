@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ouex pipefail
 if [ -x "$(command -v quarto)" ]; then
 	true
     else
@@ -9,5 +10,4 @@ tar -C /etc -xvzf /tmp/quarto.tar.gz
 EXECUTABLE_PATH=$(find /etc -type d -maxdepth 1 -name "quarto-*")
 echo $EXECUTABLE_PATH
 ln -s $EXECUTABLE_PATH/bin/quarto /usr/bin/quarto
-# quarto check install
 fi
