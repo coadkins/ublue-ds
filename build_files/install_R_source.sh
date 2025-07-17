@@ -12,12 +12,14 @@ R_HOME=${R_HOME:-"/usr/lib/R"}
 dnf -y builddep R
 
 # download and install
+# use /usr/share (not /opt, /usr/local, etc) 
+# so that R gets updated on the host 
+# system when the image updates
 wget "${DOWNLOAD_URL}" -O "/tmp/R.tar.gz"
 tar -C /tmp -xvzf /tmp/R.tar.gz
 cd /tmp/R-*/
-TMPDIR=/var/tmp
 ./configure \
---prefix=/var/usrlocal/R/${R_VERSION} \
+--prefix=/usr/share/R/${R_VERSION} \
 --enable-R-shlib \
 --enable-memory-profiling \
 --with-readline \
@@ -31,8 +33,8 @@ make clean
 
 ## Create symlinks
 if [$1 == "release"]; then
-  ln -s /var/usrlocal/R/${R_VERSION}/bin/R /usr/local/bin/R
-  ln -s /var/usrlocal/R/${R_VERSION}/bin/Rscript /usr/local/bin/Rscript
+  ln -s /usr/share/R/${R_VERSION}/bin/R /usr/local/bin/R
+  ln -s /usr/share/R/${R_VERSION}/bin/Rscript /usr/local/bin/Rscript
 fi
 
 ## use RSPM
