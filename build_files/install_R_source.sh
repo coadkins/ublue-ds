@@ -15,7 +15,7 @@ dnf -y builddep R
 wget "${DOWNLOAD_URL}" -O "/tmp/R.tar.gz"
 tar -C /tmp -xvzf /tmp/R.tar.gz
 cd /tmp/R-*/
-
+TMPDIR=/var/tmp
 ./configure \
 --prefix=/var/usrlocal/R/${R_VERSION} \
 --enable-R-shlib \
@@ -31,8 +31,8 @@ make clean
 
 ## Create symlinks
 if [$1 == "release"]; then
-  sudo ln -s /var/usrlocal/R/${R_VERSION}/bin/R /usr/local/bin/R
-  sudo ln -s /var/usrlocal/R/${R_VERSION}/bin/Rscript /usr/local/bin/Rscript
+  ln -s /var/usrlocal/R/${R_VERSION}/bin/R /usr/local/bin/R
+  ln -s /var/usrlocal/R/${R_VERSION}/bin/Rscript /usr/local/bin/Rscript
 fi
 
 ## use RSPM
