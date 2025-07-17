@@ -23,6 +23,7 @@ jobs:
       fail-fast: false
       matrix:
         base_image:
+          - kinoite-main
           - silverblue-main
     with:
       base-image: ${{ matrix.base_image }}

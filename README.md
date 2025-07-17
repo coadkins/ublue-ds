@@ -8,6 +8,7 @@ This repository provides an atomic Fedora desktop that works "out-of-the-box" fo
 - DuckDB
 - Positron
 - Quarto
+- R (the 2 most recent releases)
 - RStudio
 - VSCodium
 
@@ -24,13 +25,19 @@ bootc switch "ghcr.io/coadkins/ublue-ds-kinoite:latest"
 It is also possible to install this image using [ignition](https://docs.fedoraproject.org/en-US/fedora-coreos/producing-ign/) during the initial boot of a Fedora Atomic system, although this process is more involved.
 
 # Homebrew
-Wherever possible, this desktop uses [homebrew](https://brew.sh/) to manage packages and cli tools. You can install common data science tools using the custom just command:
+Wherever possible, this desktop uses [homebrew](https://brew.sh/) to manage packages and cli tools. You can install common data science tools using the custom just commands:
 
 ```console
 ujust ds-install-brews 
 ```
-Currently, this installs TeX live, Typst and uv.
+Currently, this installs TeX Live, Typst and uv.
+
+# Usage
+
+Although, Fedora recommends the use of toolbx for development on atomic distributions, you can develop simpler projects using the system-wide installations of R and Python with renv and venv, respectively.
+
+For projects with more complex dependencies, I use a [distrobox image with rig and uv pre-installed] (https://github.com/coadkins/ds-distrobox). That distrobox is pre-configured as an SSH host, and can be accessed with [Positron's Remotes](https://positron.posit.co/remote-ssh.html) extension. 
 
 # Acknowledgements
 
-This image was built on the [Universal Blue Image Template](https://github.com/ublue-os/image-template). Some of the installation scripts are modified versions of the scripts developed for the [Rocker project](https://github.com/rocker-org/rocker-versioned2) and [AmyOS](https://github.com/astrovm/amyos).
+This image was built on the [Universal Blue Image Template](https://github.com/ublue-os/image-template). Some of the installation scripts are modified versions of the scripts developed for the [Rocker project](https://github.com/rocker-org/rocker-versioned2), [rig](https://github.com/r-lib/rig/tree/main) and [AmyOS](https://github.com/astrovm/amyos).
