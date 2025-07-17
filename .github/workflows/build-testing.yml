@@ -24,6 +24,7 @@ jobs:
       matrix:
         base_image:
           - kinoite-main
+          - silverblue-main
     with:
       base-image: ${{ matrix.base_image }}
       image-tag: testing 

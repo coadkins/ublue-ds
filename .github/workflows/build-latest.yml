@@ -30,7 +30,7 @@ jobs:
       matrix:
         base_image:
           - kinoite-main
-          - aurora-dx 
+          - silverblue-main 
     with:
       base-image: ${{ matrix.base_image }}
       image-tag: latest
