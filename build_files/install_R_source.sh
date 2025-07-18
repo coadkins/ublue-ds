@@ -33,12 +33,6 @@ make
 make install
 make clean
 
-## Create symlinks
-if [$1 == "release"]; then
-  ln -s /usr/bin/R/${R_VERSION}/bin/R /usr/local/bin/R
-  ln -s /usr/bin/R/${R_VERSION}/bin/Rscript /usr/local/bin/Rscript
-fi
-
 ## use RSPM
 #!/bin/bash
 ## use RSPM 
