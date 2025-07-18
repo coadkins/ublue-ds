@@ -20,6 +20,7 @@ tar -C /tmp -xvzf /tmp/R.tar.gz
 cd /tmp/R-*/
 ./configure \
 --prefix=/usr/share/R/${R_VERSION} \
+--bindir=/usr/bin
 --enable-R-shlib \
 --enable-memory-profiling \
 --with-readline \
@@ -30,12 +31,6 @@ cd /tmp/R-*/
 make
 make install
 make clean
-
-## Create symlinks
-if [$1 == "release"]; then
-  ln -s /usr/share/R/${R_VERSION}/bin/R /usr/local/bin/R
-  ln -s /usr/share/R/${R_VERSION}/bin/Rscript /usr/local/bin/Rscript
-fi
 
 ## use RSPM
 #!/bin/bash

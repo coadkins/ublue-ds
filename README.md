@@ -24,7 +24,7 @@ It is also possible to install this image using [ignition](https://docs.fedorapr
 
 # Usage
 
-Although, Fedora recommends the use of toolbx for development on atomic distributions, you can develop simpler projects using the system-wide installations of R and Python with renv and venv, respectively. Quarto and the the two most recent versions are R are installed under `/usr/share/`, so that they [continue to update after the initial installation](https://developers.redhat.com/articles/2025/02/26/best-practices-building-bootable-containers#).
+Although, Fedora recommends the use of toolbx for development on atomic distributions, you can develop simpler projects using the system-wide installations of R and Python with `renv` and `venv`, respectively. The two most recent versions of R are uncoventionally installed under `/usr/share/R/${R_VERSION}`; this is so that they [continue to update after the initial installation](https://developers.redhat.com/articles/2025/02/26/best-practices-building-bootable-containers#). For Positron to discover every version, you must add /usr/share/R as a Custom Root Folder for R.
 
 For projects with more complex dependencies, I use a [distrobox image with rig and uv pre-installed](https://github.com/coadkins/ds-distrobox). That distrobox is pre-configured as an SSH host, and can be accessed with [Positron's Remotes](https://positron.posit.co/remote-ssh.html) extension. 
 
