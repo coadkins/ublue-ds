@@ -1,12 +1,13 @@
 # Load input values from github workflow
-ARG BASE_IMAGE=kinoite
+ARG BASE_IMAGE=kinoite-main
 RUN ECHO $BASE_IMAGE
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/${BASE_IMAGE}-main:42
+
+FROM ghcr.io/ublue-os/${BASE_IMAGE}:42
 COPY system_files /
 
 ## Other possible base images include:
@@ -44,6 +45,13 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
+    /ctx/install_R_source.sh "release" \
+    /ctx/install_R_source.sh "oldrel"
+
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
     /ctx/install_positron.sh
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
@@ -57,6 +65,12 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
     /ctx/install_custom_just.sh
+
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /ctx/cleanup.sh
 
 RUN ostree container commit
     
