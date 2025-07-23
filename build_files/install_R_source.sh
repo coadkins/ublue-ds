@@ -35,8 +35,8 @@ make clean
 
 # create symlink to /usr/bin for latest version
 if [ $1 == "release" ]; then
-  ln -s /usr/share/R/${R_VERSION}/bin/R /usr/bin/R
-  ln -s /usr/share/R/${R_VERSION}/bin/Rscript /usr/bin/Rscript
+  ln -s /usr/share/R/${R_VERSION}/bin/R /var/usrlocal/bin/R
+  ln -s /usr/share/R/${R_VERSION}/bin/Rscript var/usrlocal/bin/Rscript
 fi
 
 ## use RSPM
