@@ -21,6 +21,7 @@ tar -C /tmp -xvzf /tmp/R.tar.gz
 cd /tmp/R-*/
 ./configure \
 --prefix=/usr/share/R/${R_VERSION} \
+--bindir=/usr/share/R/${R_VERSION}/bin/ \
 --enable-R-shlib \
 --enable-memory-profiling \
 --with-readline \
