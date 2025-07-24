@@ -8,7 +8,7 @@ This repository provides an atomic Fedora desktop that works "out-of-the-box" fo
 - DuckDB
 - Positron
 - Quarto
-- R (the 2 most recent releases)
+- R 
 - RStudio
 - VSCodium
 
@@ -26,17 +26,20 @@ bootc switch "ghcr.io/coadkins/ublue-ds-silverblue-main:latest"
 ```
 # Usage
 
-Although, Fedora recommends the use of toolbx for development on atomic distributions, you can develop simpler projects using the system-wide installations of R and Python with `renv` and `venv`, respectively. The two most recent versions of R are uncoventionally installed under `/usr/share/R/${R_VERSION}`; this is so that they [continue to update after the initial installation](https://developers.redhat.com/articles/2025/02/26/best-practices-building-bootable-containers#). For Positron to discover every version, you must add /usr/share/R as a Custom Root Folder for R.
+Although, Fedora recommends the use of toolbx for development on atomic distributions, you can develop simpler projects using the system-wide installations of R and Python with `renv` and `venv`, respectively. The two most recent versions of R are uncoventionally installed under `/usr/share/R/${R_VERSION}`; this is so that they [continue to update after the initial installation](https://developers.redhat.com/articles/2025/02/26/best-practices-building-bootable-containers#). Positron should automatically detect these installations.
 
 For projects with more complex dependencies, I use a [distrobox image with rig and uv pre-installed](https://github.com/coadkins/ds-distrobox). That distrobox is pre-configured as an SSH host, and can be accessed with [Positron's Remotes](https://positron.posit.co/remote-ssh.html) extension. 
 
 # Homebrew
-Wherever possible, this desktop uses [homebrew](https://brew.sh/) to manage packages and cli tools. You can install common data science tools using the custom just commands:
+Wherever possible, this desktop uses [homebrew](https://brew.sh/) to manage packages and cli tools. You can install [common data science cli tools](repo_files/brews) using the custom just commands:
 
 ```console
-ujust ds-install-brews 
+ujust install-ds-brews 
 ```
-Currently, this installs TeX Live, Typst and uv.
+You can also install a [few useful GUI applications](repo_files/flatpaks) using [flatpak](https://flatpak.org/):
+```console
+ujust install-ds-flatpaks
+```
 
 # Acknowledgements
 
